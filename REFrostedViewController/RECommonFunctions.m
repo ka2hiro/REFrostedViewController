@@ -43,17 +43,3 @@ BOOL REFrostedViewControllerUIKitIsFlatMode(void)
     });
     return isUIKitFlatMode;
 }
-
-CGFloat RECalcMenuWidth(CGFloat screenWidth, UIDeviceOrientation orientation)
-{
-    CGFloat width = screenWidth - 50;
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        if (UIDeviceOrientationIsLandscape(orientation)) {
-            width = screenWidth / 3;
-        }
-        else if (UIDeviceOrientationIsPortrait(orientation)) {
-            width = screenWidth / 2;
-        }
-    }
-    return width;
-}
