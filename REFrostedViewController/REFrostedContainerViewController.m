@@ -62,8 +62,13 @@
         UITapGestureRecognizer *tapRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureRecognized:)];
         [backgroundView addGestureRecognizer:tapRecognizer];
     }
-    
-    self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width-50, self.view.frame.size.height)];
+   
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, RECalcMenuWidth(self.view.frame.size.width, [UIDevice currentDevice].orientation), self.view.frame.size.height)];
+    }
+    else {
+        self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width - 50, self.view.frame.size.height)];
+    }
     self.containerView.clipsToBounds = YES;
     [self.view addSubview:self.containerView];
     

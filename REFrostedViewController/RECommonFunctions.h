@@ -30,3 +30,4 @@
 #endif
 
 BOOL REFrostedViewControllerUIKitIsFlatMode(void);
+CGFloat RECalcMenuWidth(CGFloat screenWidth, UIDeviceOrientation orientation);
